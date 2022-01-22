@@ -7,8 +7,9 @@ query_params = st.experimental_get_query_params()
 if query_params:
     username = query_params["gh"][0]
     user = get_gh_user_info(username)
+    # Creating two columns in Streamlit
     col1, col2 = st.columns([1, 4])
     col1.image(user["avatar_url"])
     col2.header(get_quote(user["name"]))
 else:
-    st.write(get_quote())
+    st.header(get_quote())
